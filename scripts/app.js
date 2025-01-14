@@ -6,7 +6,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Add lighting to the scene
-const light = new THREE.AmbientLight(0x404040); // Ambient light
+const light = new THREE.AmbientLight(0xffffff, 1); // Ambient light color and intensity
 scene.add(light);
 
 // Add Ambient Light (to illuminate everything uniformly)
@@ -14,14 +14,26 @@ const ambientLight = new THREE.AmbientLight(0x404040, 1); // Color and intensity
 scene.add(ambientLight);
 
 // Add Directional Light (for sunlight-like effect)
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Color and intensity
-directionalLight.position.set(5, 5, 5); // Light's position
-directionalLight.castShadow = true; // Enable shadows
-scene.add(directionalLight);
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1); // Color and intensity
+directionalLight1.position.set(0, 5, 0); // Light's position
+directionalLight1.castShadow = true; // Enable shadows
+scene.add(directionalLight1);
+
+// Add Directional Light (for sunlight-like effect)
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1); // Color and intensity
+directionalLight2.position.set(5, 5, 5); // Light's position
+directionalLight2.castShadow = true; // Enable shadows
+scene.add(directionalLight2);
+
+// Add Directional Light (for sunlight-like effect)
+const directionalLight3 = new THREE.DirectionalLight(0xffffff, 1); // Color and intensity
+directionalLight3.position.set(-5, 5, -5); // Light's position
+directionalLight3.castShadow = true; // Enable shadows
+scene.add(directionalLight3);
 
 // Add a Point Light (simulates a bulb-like effect)
-const pointLight = new THREE.PointLight(0xff0000, 1, 100); // Color, intensity, distance
-pointLight.position.set(0, 2, 0); // Position the point light
+const pointLight = new THREE.PointLight(0xffff00, 0.5, 100); // Color, intensity, distance
+pointLight.position.set(10, 0, 0); // Position the point light
 scene.add(pointLight);
 
 // Get the loading screen element
